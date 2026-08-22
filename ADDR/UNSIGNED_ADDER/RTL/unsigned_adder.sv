@@ -9,7 +9,18 @@ module unsigned_adder #(parameter DATA_WIDTH = 8, parameter RIPPLE_CARRY_ADDER =
  genvar bit_i;
  generate 
  if(RIPPLE_CARRY_ADDER == 1) begin :Ripple_carry_adder
-   assign {o_carry,o_sum} = (i_A+i_B+{{(DATA_WIDTH-1){1'b0}},i_cin});
+   wire [DATA_WIDTH-1:0] w_carry_in;
+   wire [DATA_WIDTH-1:0] w_carry_out;
+   wire [DATA_WIDTH-1:0] w_p,w_g;
+   for(bit_i =0 ; bit_i < DATA_WIDTH; bit_i = bit_i+ 1) begin :gen_Bit_idx 
+      if(bit_i == 0) begin :Bit_0
+         assign w_carry_in[bit_i] = i_cin; 
+      end else begin :Bit_grater_than_0
+         assign w_carry_in[bit_i] = w_carry_out[bit_i-1]; 
+      end
+      full_adder u_full_adder (.i_A(i_A[bit_i]),.i_B(i_B[bit_i]),.i_cin(w_carry_in[bit_i]),.o_sum(o_sum[bit_i]),.o_carry(w_carry_out[bit_i]));
+   end
+   assign o_carry = w_carry_out[DATA_WIDTH-1];
  end else begin :Carry_look_head_adder
    wire [DATA_WIDTH-1:0] w_carry_in;
    wire [DATA_WIDTH-1:0] w_carry_out;
