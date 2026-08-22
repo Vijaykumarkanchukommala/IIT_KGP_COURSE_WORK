@@ -18,7 +18,7 @@ module unsigned_adder #(parameter DATA_WIDTH = 8, parameter RIPPLE_CARRY_ADDER =
       end else begin :Bit_grater_than_0
          assign w_carry_in[bit_i] = w_carry_out[bit_i-1]; 
       end
-      full_adder u_full_adder (.i_A(i_A[bit_i]),.i_B(i_B[bit_i]),.i_cin(w_carry_in[bit_i]),.o_sum(o_sum[bit_i]),.o_carry(w_carry_out[bit_i]));
+      full_adder u_full_adder (.i_A(i_A[bit_i]),.i_B(i_B[bit_i]),.i_cin(w_carry_in[bit_i]),.o_sum(o_sum[bit_i]),.o_carry(w_carry_out[bit_i])); //Dont_touch
    end
    assign o_carry = w_carry_out[DATA_WIDTH-1];
  end else begin :Carry_look_head_adder
