@@ -1,4 +1,4 @@
-module sync_dp_ram #(parameter DATA_WIDTH = 8, parameter DEPTH = 8, parameter ADDRESS_WIDTH = $clog2(DEPTH)) 
+module sync_dp_ram #(parameter DATA_WIDTH = 8, ADDRESS_WIDTH = 4 ,DEPTH = 2**ADDRESS_WIDTH) 
 (
    input                                i_clk, 
    input                                i_reset,

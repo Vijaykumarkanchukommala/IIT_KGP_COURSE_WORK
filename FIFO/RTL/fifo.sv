@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //  coder: vijay kumar kanchukommala
 ///////////////////////////////////////
-module fifo #(parameter DATA_WIDTH = 32, DEPTH = 256, ADDRESS_WIDTH = $clog2(DEPTH))(i_clk,i_reset,i_push,i_pop,i_data,o_data,o_empty,o_full);
+module fifo #(parameter DATA_WIDTH = 32,  ADDRESS_WIDTH = 4 ,DEPTH = 2**ADDRESS_WIDTH)(i_clk,i_reset,i_push,i_pop,i_data,o_data,o_empty,o_full);
   input i_push,i_pop,i_clk,i_reset;
   input  [DATA_WIDTH - 1:0] i_data;
   output [DATA_WIDTH - 1:0] o_data;
