@@ -2,6 +2,8 @@
 
 A CNN relies heavily on matrix multiplication and convolutions.To process an image, a CNN must multiply incoming data inputs (X) by static weight values (W) and sum them up.Therefore, a CNN hardware accelerator is essentially a massive, parallel grid of hundreds or thousands of these MAC units working together simultaneously.
 
+<img src="REFERENCES/images/cnn_example.png" alt="App Screenshot" >
+
 <h2> AI is Just Massive Matrix Multiplication </h2>
 At a mathematical level, AI models (like ChatGPT, Stable Diffusion, or CNNs) do not "think." They perform billions of dot products and matrix multiplications.
 To calculate a single output neuron, the chip must multiply dozens of inputs by dozens of trained "weights" and add them all together.
