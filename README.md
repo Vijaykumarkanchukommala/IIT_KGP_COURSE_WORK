@@ -6,6 +6,7 @@ A MAC unit performs two arithmetic operations in a single clock cycle: it multip
 Mathematically, it computes:
 
   <img width="465" height="45" alt="image" src="https://github.com/user-attachments/assets/a1bb1c93-36f2-4ae5-acac-09312a3b264b" />
+
 Multiplier: Takes inputs A and B and multiplies them.
 Adder: Adds the product to the current value stored in the register.
 Accumulator Register: A flip-flop or register that holds the running total and updates every clock cycle.
