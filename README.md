@@ -24,6 +24,7 @@ Mathematically, it computes:
 Multiplier: Takes inputs A and B and multiplies them.
 Adder: Adds the product to the current value stored in the register.
 Accumulator Register: A flip-flop or register that holds the running total and updates every clock cycle.
+<img src="REFERENCES/images/mac_parallel.png" alt="App Screenshot" width="500">
 
 <h3>Implemented items so far:</h3>
 <ol>
