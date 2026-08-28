@@ -1,4 +1,4 @@
-module sram_single_port #(parameter DATA_WIDTH = 8, ADDRESS_WIDTH = 4 ,DEPTH = 2**ADDRESS_WIDTH) 
+module sram_single_port #(parameter DATA_WIDTH = 8, DEPTH = 4, ADDRESS_WIDTH = $clog2(DEPTH)) 
 (
    input                                i_clk, 
    input                                i_en, 
