@@ -1,7 +1,14 @@
-module mac #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, parameter RAM_ADDRESS_WIDTH = $clog2(NUM_ROWS_VS_COLUMNS),parameter OUTPUT_WIDTH = 2*SAMPLE_WIDTH+$clog2(NUM_ROWS_VS_COLUMNS)) 
+module mac_core #(
+   parameter SAMPLE_WIDTH        = 8, 
+   parameter NUM_ROWS_VS_COLUMNS = 8, 
+   parameter RAM_ADDRESS_WIDTH   = $clog2(NUM_ROWS_VS_COLUMNS),
+   parameter OUTPUT_WIDTH        = 2*SAMPLE_WIDTH+$clog2(NUM_ROWS_VS_COLUMNS)
+) 
 (
-   input                             i_clk, i_reset,
-   input    [SAMPLE_WIDTH - 1:0]     i_A, i_B,
+   input                             i_clk, 
+   input                             i_reset,
+   input    [SAMPLE_WIDTH - 1:0]     i_A, 
+   input    [SAMPLE_WIDTH - 1:0]     i_B,
    input                             i_valid,
    output   [RAM_ADDRESS_WIDTH -1:0] o_raddr,
    output   [OUTPUT_WIDTH - 1:0]     o_output,
@@ -9,9 +16,10 @@ module mac #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, para
 );
 
   reg       [RAM_ADDRESS_WIDTH-1:0] r_raddr;
-  reg       [SAMPLE_WIDTH-1:0]      r_A, r_B;
+  reg       [SAMPLE_WIDTH-1:0]      r_A;
+  reg       [SAMPLE_WIDTH-1:0]      r_B;
   wire                              w_load;
-  reg                               r_load_dly;
+  reg                               r_load;
   wire                              w_addr_max;
   reg       [1:0]                   r_addr_max;
   wire      [2*SAMPLE_WIDTH-1:0]    w_mult_res;
@@ -53,9 +61,9 @@ module mac #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, para
 
   always_ff @(posedge i_clk or negedge i_reset) begin
     if(!i_reset) begin
-      r_load_dly      <= 1'b0;
+      r_load      <= 1'b0;
     end else if(w_load) begin
-      r_load_dly      <= 1'b1;
+      r_load      <= 1'b1;
     end
   end
 
@@ -80,7 +88,7 @@ module mac #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, para
   always_ff @(posedge i_clk or negedge i_reset) begin
     if(!i_reset) begin
       r_sum_res      <= {OUTPUT_WIDTH{1'b0}};
-    end else if(r_load_dly) begin
+    end else if(r_load) begin
       r_sum_res      <= w_sum_res;
     end
   end
