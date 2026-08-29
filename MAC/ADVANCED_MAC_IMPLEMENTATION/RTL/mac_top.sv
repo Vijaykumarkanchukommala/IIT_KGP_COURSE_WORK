@@ -1,4 +1,4 @@
-module mac_top #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, parameter OUTPUT_WIDTH = 2*SAMPLE_WIDTH+$clog2(NUM_ROWS_VS_COLUMNS), DATA_WIDTH = 8, DEPTH = 4) 
+module mac_top #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, parameter OUTPUT_WIDTH = 2*SAMPLE_WIDTH+$clog2(NUM_ROWS_VS_COLUMNS), DATA_WIDTH = 8, DEPTH = 4, ADDRESS_WIDTH = $clog2(DEPTH)) 
 (
    input                                i_clk, 
    input                                i_reset,
@@ -23,8 +23,7 @@ module mac_top #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, 
   assign w_sram_en  =  i_valid;
   assign w_ram_addr =  w_mac_en ? w_mac_addr : i_addr ;
 
-
-  sram_single_port #(.DATA_WIDTH(DATA_WIDTH),.DEPTH(DEPTH),.)u_sram_single_port
+  sram_single_port #(.DATA_WIDTH(DATA_WIDTH),.DEPTH(DEPTH))u_sram_single_port
   (
     .i_clk           (i_clk       ), 
     .i_en            (w_sram_en   ), 
@@ -41,6 +40,7 @@ module mac_top #(parameter SAMPLE_WIDTH = 8, parameter NUM_ROWS_VS_COLUMNS = 8, 
     .i_A             (i_data      ),
     .i_B             (w_data      ),
     .i_valid         (w_mac_en    ),
+    .o_raddr         (w_mac_addr  ),
     .o_output        (o_output    ),
     .o_valid         (o_valid     ) 
   );
