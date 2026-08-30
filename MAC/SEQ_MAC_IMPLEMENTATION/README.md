@@ -1,10 +1,10 @@
-<h1> Sequenctioal MAC implementation  </h1>
+<h1>Sequenctioal MAC implementation  </h1>
 
-<img src="mac_core.png" alt="App Screenshot" width="500">
-<img src="ctrl.png" alt="App Screenshot" width="500">
-<img src="waveform.png" alt="App Screenshot" width="500">
-
-<h3>Status</h3>
-Ongoing
+<h1>Mac core  </h1>
+<img src="mac_core.png">
+<h1>Control logic  </h1>
+<img src="ctrl.png" >
+<h1>Waveform  </h1>
+<img src="waveform.png">
 
 
