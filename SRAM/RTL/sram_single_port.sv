@@ -1,14 +1,18 @@
-module sram_single_port #(parameter DATA_WIDTH = 8, DEPTH = 4, ADDRESS_WIDTH = $clog2(DEPTH)) 
-(
+module sram_single_port #(
+  parameter DATA_WIDTH    = 8, 
+  parameter NUM_SAMPLES   = 4, 
+  parameter ADDRESS_WIDTH = $clog2(NUM_SAMPLES)
+) 
+(                                   
    input                                i_clk, 
    input                                i_en, 
    input                                i_wen, 
    input        [ADDRESS_WIDTH - 1:0]   i_addr,
    input        [DATA_WIDTH    - 1:0]   i_data,
-   output   reg [DATA_WIDTH    - 1:0]   o_data 
+   output       [DATA_WIDTH    - 1:0]   o_data [NUM_SAMPLES-1:0] 
 );
 
- reg [DATA_WIDTH-1:0] mem [DEPTH-1:0];
+ reg [DATA_WIDTH-1:0] mem [NUM_SAMPLES-1:0];
 
  integer i;
 
@@ -21,10 +25,6 @@ module sram_single_port #(parameter DATA_WIDTH = 8, DEPTH = 4, ADDRESS_WIDTH = $
   end
 
 
-  always_ff @(posedge i_clk) begin
-    if(i_en) begin
-      o_data     <= mem[i_addr];
-    end
-  end
+  assign    o_data     = mem;
 
 endmodule
