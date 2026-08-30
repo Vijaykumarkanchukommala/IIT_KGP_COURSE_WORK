@@ -14,6 +14,7 @@ In image-processing AI (CNNs), a small matrix called a "kernel" slides across an
 
 <img src="REFERENCES/images/cnn.png" alt="App Screenshot" width="500">
 
+## MAC - Multiply-Accumulate operation</h1>
 A MAC unit performs two arithmetic operations in a single clock cycle: it multiplies two numbers and adds the result to a running total (an accumulator).
 Mathematically, it computes:
 
@@ -23,6 +24,7 @@ Multiplier: Takes inputs A and B and multiplies them.
 Adder: Adds the product to the current value stored in the register.
 Accumulator Register: A flip-flop or register that holds the running total and updates every clock cycle.
 <img src="REFERENCES/images/mac_parallel.png" alt="App Screenshot" width="500">
+
 [⬅️ MAC README](MAC/README.md)
 
 <h2>Kernel</h2>
