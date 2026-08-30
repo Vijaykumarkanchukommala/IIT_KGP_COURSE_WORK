@@ -1,4 +1,4 @@
-module sram_single_port #(
+module kernal_buffer #(
   parameter DATA_WIDTH    = 8, 
   parameter NUM_SAMPLES   = 4, 
   parameter ADDRESS_WIDTH = $clog2(NUM_SAMPLES)

@@ -44,7 +44,7 @@ module mac_top #(
     .o_ram_addr           (w_ram_addr         ) 
   );
 
-  sram_single_port #(
+  kernal_buffer #(
     .DATA_WIDTH           (DATA_WIDTH         ),
     .NUM_SAMPLES          (NUM_SAMPLES        ),
     .ADDRESS_WIDTH        (ADDRESS_WIDTH      )
