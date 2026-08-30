@@ -129,7 +129,7 @@
 <img src="../REFERENCES/images/carry_look_head_adder.png">
 
 ## Number representation  
-<img src="../REFERENCES/images/number_representation.jpeg">
+<img src="../REFERENCES/images/number_representation.png">
 
 ## UNSIGNED ADDER & SIGNED ADDER
 <img src="../REFERENCES/images/addition.png">
