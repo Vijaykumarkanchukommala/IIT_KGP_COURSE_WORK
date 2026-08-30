@@ -32,9 +32,8 @@ Accumulator Register: A flip-flop or register that holds the running total and u
     
     <p>The general formula for the number of positions along a single dimension is:</p>
     <div class="formula-block" style="text-align: center; margin: 15px 0; font-weight: bold;">
-        Positions = <span>(L - K + 2P) / S</span> + 1
+        Positions = <span>(L - K + 2P) / S</span> + 1 
     </div>
-
     <p>Where:</p>
     <ul>
         <li><strong>L</strong> = Input dimension (<em>H</em> or <em>W</em>)</li>
@@ -42,13 +41,11 @@ Accumulator Register: A flip-flop or register that holds the running total and u
         <li><strong>P</strong> = Padding (<em>0</em>)</li>
         <li><strong>S</strong> = Stride (<em>1</em>)</li>
     </ul>
-
     <p>Substituting your values (<em>K=3, P=0, S=1</em>):</p>
     <ul>
         <li><strong>Horizontal positions (O<sub>W</sub>):</strong> (W - 3 + 0) / 1 + 1 = <strong>W - 2</strong></li>
         <li><strong>Vertical positions (O<sub>H</sub>):</strong> (H - 3 + 0) / 1 + 1 = <strong>H - 2</strong></li>
     </ul>
-
     <p><strong>Total Unique Windows / Placements:</strong></p>
     <div class="formula-block" style="text-align: center; margin: 15px 0; font-size: 1.1em; font-weight: bold;">
         Total Positions = (H - 2) &times; (W - 2)
@@ -61,7 +58,6 @@ Accumulator Register: A flip-flop or register that holds the running total and u
     <h3>2. Literal Number of Shift Movements</h3>
     <p>If the question is asking for the exact number of times the filter actively slides/shifts from its starting position:</p>
     <p>A filter starts at the top-left corner (Position 1). To cover a row of <em>O<sub>W</sub></em> positions, it must shift to the right exactly <em>O<sub>W</sub> - 1</em> times.</p>
-    
     <ul>
         <li><strong>Horizontal shifts per row:</strong> (W - 2) - 1 = <strong>W - 3</strong></li>
         <li><strong>Vertical shifts per column:</strong> (H - 2) - 1 = <strong>H - 3</strong></li>
