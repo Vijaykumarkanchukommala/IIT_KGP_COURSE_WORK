@@ -62,5 +62,7 @@ $$\text{MACs} = 27 \times 900 \times 16 = \mathbf{388,800\text{ operations}}$$
 * **Latency**: Lower MAC counts directly translate to faster inference times.
 
 [-> Sequential MAC](SEQ_MAC_IMPLEMENTATION/README.md)
+
 [-> Parallel MAC](PARALLEL_MAC_IMPLEMENTATION/README.md)
+
 [<- Back to Main README](../README.md)
