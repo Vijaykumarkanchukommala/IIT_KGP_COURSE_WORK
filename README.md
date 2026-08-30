@@ -24,12 +24,10 @@ Adder: Adds the product to the current value stored in the register.
 Accumulator Register: A flip-flop or register that holds the running total and updates every clock cycle.
 <img src="REFERENCES/images/mac_parallel.png" alt="App Screenshot" width="500">
 
-
-
+<h2>Kernal</h2>
 <section class="cnn-calculation">
     <h3>1. Total Unique Positions (Standard Output Size)</h3>
     <p>In deep learning, this is equivalent to calculating the spatial dimensions of the output feature map.</p>
-    
     <p>The general formula for the number of positions along a single dimension is:</p>
     <div class="formula-block" style="text-align: center; margin: 15px 0; font-weight: bold;">
         Positions = <span>(L - K + 2P) / S</span> + 1 
@@ -65,7 +63,7 @@ Accumulator Register: A flip-flop or register that holds the running total and u
 </section>
 
 <section class="cnn-summary-table" style="margin-top: 25px;">
-    <h3>📝 Summary Table (For <em>H &times; W</em> image, 3 &times; 3 kernel, Stride 1, No Padding)</h3>
+    <h3>Summary Table (For <em>H &times; W</em> image, 3 &times; 3 kernel, Stride 1, No Padding)</h3>
     <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; border-color: #ddd;">
         <thead>
             <tr style="background-color: #f2f2f2;">
@@ -102,14 +100,14 @@ Accumulator Register: A flip-flop or register that holds the running total and u
 </section>
 
 
-<h3>Implemented items so far:</h3>
+<h2>Implemented items so far:</h2>
 <ol>
 <li>Initial parallel/sequential MAC</li>
 <li>Adder</li>
 <li>RAM</li>
 </ol>
 
-<h3>Status</h3>
+<h2>Status</h2>
 Ongoing
 
 
