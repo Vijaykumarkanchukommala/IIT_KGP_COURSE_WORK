@@ -25,7 +25,7 @@ Accumulator Register: A flip-flop or register that holds the running total and u
 <img src="REFERENCES/images/mac_parallel.png" alt="App Screenshot" width="500">
 
 <h2>Kernel</h2>
-<img src="REFERENCES/images/kernel.png" alt="App Screenshot" width="500">
+<img src="REFERENCES/images/kernels.png" alt="App Screenshot" width="500">
 <section class="cnn-calculation">
     <h3>1. Total Unique Positions (Standard Output Size)</h3>
     <p>In deep learning, this is equivalent to calculating the spatial dimensions of the output feature map.</p>
