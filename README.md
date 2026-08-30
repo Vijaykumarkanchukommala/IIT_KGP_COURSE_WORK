@@ -24,7 +24,8 @@ Adder: Adds the product to the current value stored in the register.
 Accumulator Register: A flip-flop or register that holds the running total and updates every clock cycle.
 <img src="REFERENCES/images/mac_parallel.png" alt="App Screenshot" width="500">
 
-<h2>Kernal</h2>
+<h2>Kernel</h2>
+<img src="REFERENCES/images/kernel.png" alt="App Screenshot" width="500">
 <section class="cnn-calculation">
     <h3>1. Total Unique Positions (Standard Output Size)</h3>
     <p>In deep learning, this is equivalent to calculating the spatial dimensions of the output feature map.</p>
