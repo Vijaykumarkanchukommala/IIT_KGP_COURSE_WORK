@@ -4,6 +4,4 @@
 <img src="../../REFERENCES/images/mac_parallel.png">
 
 <h1>Waveform  </h1>
-<img src="waveform.png">
-
-
+<img src="WORK/waveform.png">
