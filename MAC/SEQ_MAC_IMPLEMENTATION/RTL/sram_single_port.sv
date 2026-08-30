@@ -4,12 +4,12 @@ module sram_single_port #(
   parameter ADDRESS_WIDTH = $clog2(NUM_SAMPLES)
 ) 
 (                                   
-   input                                i_clk, 
-   input                                i_en, 
-   input                                i_wen, 
-   input        [ADDRESS_WIDTH - 1:0]   i_addr,
-   input        [DATA_WIDTH    - 1:0]   i_data,
-   output       [DATA_WIDTH    - 1:0]   o_data  
+   input                                  i_clk, 
+   input                                  i_en, 
+   input                                  i_wen, 
+   input          [ADDRESS_WIDTH - 1:0]   i_addr,
+   input   signed [DATA_WIDTH    - 1:0]   i_data,
+   output  signed [DATA_WIDTH    - 1:0]   o_data  
 );
 
  reg [DATA_WIDTH-1:0] mem [NUM_SAMPLES-1:0];

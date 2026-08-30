@@ -2,27 +2,27 @@ module mac_core #(
    parameter SAMPLE_WIDTH        = 8, 
    parameter NUM_SAMPLES         = 8, 
    parameter OUTPUT_WIDTH        = 2*SAMPLE_WIDTH+$clog2(NUM_SAMPLES),
-   parameter SIGN_TYPE           = 0 //0- unsigned; 1- signed
+   parameter SIGN_TYPE           = 1 //0- unsigned; 1- signed
 ) 
 (
-   input                             i_clk, 
-   input                             i_reset_n,
-   input    [SAMPLE_WIDTH - 1:0]     i_A, 
-   input    [SAMPLE_WIDTH - 1:0]     i_B,
-   input                             i_load,
-   input                             i_load_final,
-   output   [OUTPUT_WIDTH - 1:0]     o_output,
-   output                            o_output_valid 
+   input                                   i_clk, 
+   input                                   i_reset_n,
+   input   signed [SAMPLE_WIDTH - 1:0]     i_A, 
+   input   signed [SAMPLE_WIDTH - 1:0]     i_B,
+   input                                   i_load,
+   input                                   i_load_final,
+   output  signed [OUTPUT_WIDTH - 1:0]     o_output,
+   output                                  o_output_valid 
 );
 
-  reg       [SAMPLE_WIDTH-1:0]      r_A;
-  reg       [SAMPLE_WIDTH-1:0]      r_B;
-  reg                               r_load;
-  reg       [1:0]                   r_addr_max;
-  wire      [2*SAMPLE_WIDTH-1:0]    w_mult_res;
-  reg       [OUTPUT_WIDTH - 1:0]    r_sum_res;
-  wire      [OUTPUT_WIDTH - 1:0]    w_sum_res;
-  reg       [OUTPUT_WIDTH - 1:0]    r_output;
+  reg   signed    [SAMPLE_WIDTH-1:0]      r_A;
+  reg   signed    [SAMPLE_WIDTH-1:0]      r_B;
+  reg                                     r_load;
+  reg             [1:0]                   r_addr_max;
+  wire  signed    [2*SAMPLE_WIDTH-1:0]    w_mult_res;
+  reg   signed    [OUTPUT_WIDTH - 1:0]    r_sum_res;
+  wire  signed    [OUTPUT_WIDTH - 1:0]    w_sum_res;
+  reg   signed    [OUTPUT_WIDTH - 1:0]    r_output;
 
   assign o_output        = r_output;
   assign o_output_valid  = r_addr_max[1];

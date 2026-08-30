@@ -4,17 +4,17 @@ module mac_top #(
   parameter OUTPUT_WIDTH            = 2*SAMPLE_WIDTH+$clog2(NUM_SAMPLES), 
   parameter DATA_WIDTH              = 8, 
   parameter ADDRESS_WIDTH           = $clog2(NUM_SAMPLES),
-  parameter SIGN_TYPE               = 0 //0- unsigned; 1- signed
+  parameter SIGN_TYPE               = 1 //0- unsigned; 1- signed
 ) 
 (
-   input                                i_clk             , 
-   input                                i_reset_n         ,
-   input                                i_load_weight     , 
-   input        [ADDRESS_WIDTH- 1:0]    i_load_weight_addr,
-   input        [DATA_WIDTH   - 1:0]    i_data            ,
-   input                                i_data_valid      ,
-   output       [OUTPUT_WIDTH - 1:0]    o_output          , 
-   output                               o_output_valid     
+   input                                  i_clk             , 
+   input                                  i_reset_n         ,
+   input                                  i_load_weight     , 
+   input          [ADDRESS_WIDTH- 1:0]    i_load_weight_addr,
+   input   signed [DATA_WIDTH   - 1:0]    i_data            ,
+   input                                  i_data_valid      ,
+   output  signed [OUTPUT_WIDTH - 1:0]    o_output          , 
+   output                                 o_output_valid     
 );
 
 
@@ -24,7 +24,7 @@ module mac_top #(
   wire                                  w_mac_load_final;
   wire          [ADDRESS_WIDTH -1:0]    w_ram_addr      ;
   wire          [ADDRESS_WIDTH -1:0]    w_mac_addr      ;
-  wire          [DATA_WIDTH    -1:0]    w_data          ;
+  wire   signed [DATA_WIDTH    -1:0]    w_data          ;
 
 
   ctrl #( 
@@ -48,7 +48,7 @@ module mac_top #(
     .DATA_WIDTH           (DATA_WIDTH         ),
     .NUM_SAMPLES          (NUM_SAMPLES        ),
     .ADDRESS_WIDTH        (ADDRESS_WIDTH      )
-  )u_sram_single_port
+  )u_kernal_buffer
   (
     .i_clk                (i_clk              ), 
     .i_en                 (w_sram_en          ), 
