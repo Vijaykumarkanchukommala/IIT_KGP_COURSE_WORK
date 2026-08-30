@@ -2,6 +2,7 @@
 <img src="../REFERENCES/images/half_full_adder.png">
 ## Half ADDER
 ### Truth table
+<section class="cnn-summary-table" style="margin-top: 25px;">
     <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; border-color: #ddd;">
         <thead>
             <tr style="background-color: #f2f2f2;">
@@ -43,8 +44,10 @@
             </tr>
         </tbody>
     </table>
+</section>
 ## Full ADDER
 ### Truth table
+<section class="cnn-summary-table" style="margin-top: 25px;">
     <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; border-color: #ddd;">
         <thead>
             <tr style="background-color: #f2f2f2;">
@@ -119,6 +122,7 @@
             </tr>
         </tbody>
     </table>
+</section>
 ## Ripple carry adder
 <img src="../REFERENCES/images/ripple_carry_adder.png">
 ## Carry look ahead adder
