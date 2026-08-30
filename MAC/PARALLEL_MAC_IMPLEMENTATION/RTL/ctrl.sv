@@ -4,8 +4,8 @@ module ctrl
   parameter ADDRESS_WIDTH = $clog2(NUM_SAMPLES)
 )
 (
-  input                                  i_clk              ,          
-  input                                  i_reset_n          , 
+//input                                  i_clk              ,          
+//input                                  i_reset_n          , 
   input                                  i_load_weight      , 
   input    [ADDRESS_WIDTH-1:0]           i_load_weight_addr ,
   input                                  i_data_valid       , 

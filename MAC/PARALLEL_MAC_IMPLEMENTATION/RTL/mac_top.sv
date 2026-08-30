@@ -32,8 +32,8 @@ module mac_top #(
     .ADDRESS_WIDTH        (ADDRESS_WIDTH      )
   )u_ctrl
   (
-    .i_clk                (i_clk              ),
-    .i_reset_n            (i_reset_n          ),
+  //.i_clk                (i_clk              ),
+  //.i_reset_n            (i_reset_n          ),
     .i_load_weight        (i_load_weight      ),
     .i_load_weight_addr   (i_load_weight_addr ),
     .i_data_valid         (i_data_valid       ),
@@ -64,8 +64,8 @@ module mac_top #(
     .ADDER_TYPE           (ADDER_TYPE         )
   ) u_mac_core 
   (
- //   .i_clk                (i_clk              ),
- //   .i_reset_n            (i_reset_n          ),
+  //.i_clk                (i_clk              ),
+  //.i_reset_n            (i_reset_n          ),
     .i_A                  (i_data             ),
     .i_B                  (w_data             ),
     .i_load               (w_mac_load         ),
