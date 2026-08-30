@@ -24,6 +24,88 @@ Adder: Adds the product to the current value stored in the register.
 Accumulator Register: A flip-flop or register that holds the running total and updates every clock cycle.
 <img src="REFERENCES/images/mac_parallel.png" alt="App Screenshot" width="500">
 
+
+
+<section class="cnn-calculation">
+    <h3>1. Total Unique Positions (Standard Output Size)</h3>
+    <p>In deep learning, this is equivalent to calculating the spatial dimensions of the output feature map.</p>
+    
+    <p>The general formula for the number of positions along a single dimension is:</p>
+    <div class="formula-block" style="text-align: center; margin: 15px 0; font-weight: bold;">
+        Positions = <span>(L - K + 2P) / S</span> + 1
+    </div>
+
+    <p>Where:</p>
+    <ul>
+        <li><strong>L</strong> = Input dimension (<em>H</em> or <em>W</em>)</li>
+        <li><strong>K</strong> = Kernel size (<em>3</em>)</li>
+        <li><strong>P</strong> = Padding (<em>0</em>)</li>
+        <li><strong>S</strong> = Stride (<em>1</em>)</li>
+    </ul>
+
+    <p>Substituting your values (<em>K=3, P=0, S=1</em>):</p>
+    <ul>
+        <li><strong>Horizontal positions (O<sub>W</sub>):</strong> (W - 3 + 0) / 1 + 1 = <strong>W - 2</strong></li>
+        <li><strong>Vertical positions (O<sub>H</sub>):</strong> (H - 3 + 0) / 1 + 1 = <strong>H - 2</strong></li>
+    </ul>
+
+    <p><strong>Total Unique Windows / Placements:</strong></p>
+    <div class="formula-block" style="text-align: center; margin: 15px 0; font-size: 1.1em; font-weight: bold;">
+        Total Positions = (H - 2) &times; (W - 2)
+    </div>
+</section>
+
+
+
+<section class="cnn-shifts">
+    <h3>2. Literal Number of Shift Movements</h3>
+    <p>If the question is asking for the exact number of times the filter actively slides/shifts from its starting position:</p>
+    <p>A filter starts at the top-left corner (Position 1). To cover a row of <em>O<sub>W</sub></em> positions, it must shift to the right exactly <em>O<sub>W</sub> - 1</em> times.</p>
+    
+    <ul>
+        <li><strong>Horizontal shifts per row:</strong> (W - 2) - 1 = <strong>W - 3</strong></li>
+        <li><strong>Vertical shifts per column:</strong> (H - 2) - 1 = <strong>H - 3</strong></li>
+    </ul>
+</section>
+
+<section class="cnn-summary-table" style="margin-top: 25px;">
+    <h3>📝 Summary Table (For <em>H &times; W</em> image, 3 &times; 3 kernel, Stride 1, No Padding)</h3>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; border-color: #ddd;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th>Interpretation</th>
+                <th>Dimension</th>
+                <th>Equation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3"><strong>Total Filter Placements (Output Size)</strong></td>
+                <td>Total</td>
+                <td><strong>(H - 2) &times; (W - 2)</strong></td>
+            </tr>
+            <tr>
+                <td>Per Row</td>
+                <td>W - 2</td>
+            </tr>
+            <tr>
+                <td>Per Column</td>
+                <td>H - 2</td>
+            </tr>
+            <tr>
+                <td rowspan="2"><strong>Literal Number of Shifts (Movements)</strong></td>
+                <td>Per Row</td>
+                <td><strong>W - 3</strong></td>
+            </tr>
+            <tr>
+                <td>Per Column</td>
+                <td><strong>H - 3</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
 <h3>Implemented items so far:</h3>
 <ol>
 <li>Initial parallel/sequential MAC</li>
