@@ -45,11 +45,14 @@ $$\text{Total MACs} = K_H \times K_W \times C_{in} \times H_{out} \times W_{out}
 ##  Concrete Calculation Example
 Let's calculate the MACs for a typical CNN layer:
 * **Input**: $32 \times 32$ image with **3 channels** (RGB)
-* **Filter size**: $3 \times 3$ kernel, with **16 output channels**
+* **Filter size**: $3 \times 3$ kernel, with **16 output channels  (or) 16 kernels**
+* **Total Positions** : $(H - 2) \times (W - 2)$, with **$30 \times 30$** 
 * **Output size**: Assume $\text{stride}=1$ and $\text{padding}=0$, resulting in a **$30 \times 30$** output map.
 
 $$\text{MACs} = 3 \times 3 \times 3 \times 30 \times 30 \times 16$$
 $$\text{MACs} = 27 \times 900 \times 16 = \mathbf{388,800\text{ operations}}$$
+
+* **Here**: 3 - RGB layes, $3 \times 3$ - kernel, **$30 \times 30$** - Total positions, 16 - kernels
 
 ---
 
@@ -58,3 +61,4 @@ $$\text{MACs} = 27 \times 900 \times 16 = \mathbf{388,800\text{ operations}}$$
 * **Battery & Power Constraints**: Running mobile models (like MobileNet) requires minimizing MACs to prevent draining smartphone or IoT batteries. 
 * **Latency**: Lower MAC counts directly translate to faster inference times.
 
+[⬅️ Back to Main README](../README.md)
