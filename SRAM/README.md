@@ -59,15 +59,15 @@ The system architecture is structured to route data hierarchically: the top-leve
      CE_B (Enable) ─────►│ ce_b                         │
      WE_B (Read/Write) ─►│ we_b             dout [31:0] ├────────► DOUT [31:0]
                          │                              │  (Read Data Out)
-     ADDR [14:0] ───────►│ addr [14:0]                  │
-  (15-bit Word Addr)     │                              │
-                         │                  din [31:0]  │◄──────── DIN [31:0]
-                         │                              │ (Write Data In)
-                         └──────────────────────────────┘
+     ADDR [14:0] ───────►│ addr [14:0]                  │                    
+  (15-bit Word Addr)     │                              │                             
+                         │                  din [31:0]  │◄──────── DIN [31:0]   
+                         │                              │ (Write Data In)              
+                         └──────────────────────────────┘                                
 
 
 ###  Key Implementation Guidelines
 
 * **Bank and Block Decoding**: Use low-skew combinatorial decoders for the **Bank Select** and **Block Select** lines. Enabling only one specific block in one specific bank during an active cycle significantly minimizes dynamic power consumption.
-* **SRAM Cell Core**: Each of the 32 total blocks ($4 	imes 8$) houses an array of **6T SRAM cells** configured as a $1024 	imes 32$ bit matrix (or optimized into a squarer $128 	imes 256$ layout to balance vertical and horizontal wire lengths).
+* **SRAM Cell Core**: Each of the 32 total blocks ($4 \times 8$) houses an array of **6T SRAM cells** configured as a $1024 \times 32$ bit matrix (or optimized into a squarer $128 \times 256$ layout to balance vertical and horizontal wire lengths).
 * **Periphery Circuitry**: Each block requires its own set of pre-charge circuits, row decoders, **sense amplifiers** to accelerate read operations, and write drivers to override the cross-coupled inverters.
