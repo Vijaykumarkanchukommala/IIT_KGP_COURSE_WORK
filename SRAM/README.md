@@ -48,9 +48,7 @@ The system architecture is structured to route data hierarchically: the top-leve
 ---
 
 
-## SRAM blank
-
-
+## SRAM Interface 
                          ┌──────────────────────────────┐
                          │      128KB Banked SRAM       │
                          │    (Word-Addressable Core)   │
@@ -59,13 +57,11 @@ The system architecture is structured to route data hierarchically: the top-leve
      CE_B (Enable) ─────►│ ce_b                         │
      WE_B (Read/Write) ─►│ we_b             dout [31:0] ├────────► DOUT [31:0]
                          │                              │  (Read Data Out)
-     ADDR [14:0] ───────►│ addr [14:0]                  │                    
-  (15-bit Word Addr)     │                              │                             
-                         │                  din [31:0]  │◄──────── DIN [31:0]   
-                         │                              │ (Write Data In)              
+     ADDR [14:0] ───────►│ addr [14:0]                  │
+  (15-bit Word Addr)     │                              │
+                         │                  din [31:0]  │◄──────── DIN [31:0]
+                         │                              │ (Write Data In)
                          └──────────────────────────────┘                                
-
-
 ###  Key Implementation Guidelines
 
 * **Bank and Block Decoding**: Use low-skew combinatorial decoders for the **Bank Select** and **Block Select** lines. Enabling only one specific block in one specific bank during an active cycle significantly minimizes dynamic power consumption.
