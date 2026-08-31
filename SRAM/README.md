@@ -16,7 +16,7 @@ For a 128 KB memory space, a **17-bit memory address** ($2^{17} = 131,072 	ext{ 
 | **A[1:0]** | **Byte Offset** | 2 bits | Selects individual bytes within the 32-bit word (Ignored if strictly word-aligned). |
 
 ### Mathematical Alignment
-$$	ext{4 banks} 	imes 	ext{8 blocks/bank} 	imes 	ext{1024 words/block} 	imes 	ext{4 bytes/word} = 128	ext{ KB}$$
+$$\text{4 banks} \times \text{8 blocks/bank} \times \text{1024 words/block} \times \text{4 bytes/word} = 128\text{ KB}$$
 
 ---
 
