@@ -1,1 +1,2 @@
-$RTL_PATH/sram_single_port.sv
+$RTL_PATH/sram_bank.sv
+$RTL_PATH/sram_block.sv
