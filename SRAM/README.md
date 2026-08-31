@@ -49,19 +49,37 @@ The system architecture is structured to route data hierarchically: the top-leve
 
 
 ## SRAM Interface 
-                         ┌──────────────────────────────┐
-                         │      128KB Banked SRAM       │
-                         │    (Word-Addressable Core)   │
-                         │                              │
-     CLK ───────────────►│ clk                          │
-     CE_B (Enable) ─────►│ ce_b                         │
-     WE_B (Read/Write) ─►│ we_b             dout [31:0] ├────────► DOUT [31:0]
-                         │                              │  (Read Data Out)
-     ADDR [14:0] ───────►│ addr [14:0]                  │
-  (15-bit Word Addr)     │                              │
-                         │                  din [31:0]  │◄──────── DIN [31:0]
-                         │                              │ (Write Data In)
-                         └──────────────────────────────┘                                
+
+
+```text
+                       ┌──────────────────────────────┐
+                       │      128KB Banked SRAM       │
+                       │    (Word-Addressable Core)   │
+                       │                              │
+   CLK ───────────────►│ clk                          │
+   CE_B (Enable) ─────►│ ce_b                         │
+   WE_B (Read/Write) ─►│ we_b             dout [31:0] ├────────► DOUT [31:0]
+                       │                              │  (Read Data Out)
+   ADDR [14:0] ───────►│ addr [14:0]                  │
+(15-bit Word Addr)     │                              │
+                       │                  din [31:0]  │◄──────── DIN [31:0]
+                       │                              │ (Write Data In)
+                       └──────────────────────────────┘
+```
+
+## Bank Selection Decoder Interface Logic
+
+The layout below represents the combinatorial 2-to-4 decoding gating circuit. It isolates the most significant bits of the address bus to power-gate individual memory banks during memory access cycles.
+
+```text
+                    ┌─────────────────────────┐
+ADDR[14] ──────────►│                         ├─► BANK_SEL[0] (To Bank 0 Enable)
+ADDR[13] ──────────►│  2-to-4 Decoder Core    ├─► BANK_SEL[1] (To Bank 1 Enable)
+                    │  With Active-High Enable│─► BANK_SEL[2] (To Bank 2 Enable)
+CE_B ──►[ Inverter ]►│                         ├─► BANK_SEL[3] (To Bank 3 Enable)
+                    └─────────────────────────┘
+```
+
 ###  Key Implementation Guidelines
 
 * **Bank and Block Decoding**: Use low-skew combinatorial decoders for the **Bank Select** and **Block Select** lines. Enabling only one specific block in one specific bank during an active cycle significantly minimizes dynamic power consumption.

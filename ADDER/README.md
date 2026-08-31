@@ -2,127 +2,24 @@
 <img src="../REFERENCES/images/half_full_adder.png">
 ## Half ADDER
 ### Truth table
-<section class="cnn-summary-table" style="margin-top: 25px;">
-    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; border-color: #ddd;">
-        <thead>
-            <tr style="background-color: #f2f2f2;">
-                <th colspan="2">Input</th>
-                <th colspan="2">Output</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="background-color: #f2f2f2;">
-                
-                <td>A</td>
-                <td>B</td>
-                <td>SUM</td>
-                <td>Carry</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>1</td>
-                <td>0</td>
-            </tr>
-              <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>1</td>
-                <td>0</td>
-            </tr>
-               <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+| Input A | Input B | Carry (C) | Sum (S) |
+| :---: | :---: | :---: | :---: |
+| 0 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 |
+| 1 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 0 |
 ## Full ADDER
 ### Truth table
-<section class="cnn-summary-table" style="margin-top: 25px;">
-    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; border-color: #ddd;">
-        <thead>
-            <tr style="background-color: #f2f2f2;">
-                <th colspan="3">Input</th>
-                <th colspan="2">Output</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="background-color: #f2f2f2;">
-                
-                <td>A</td>
-                <td>B</td>
-                <td>Cin</td>
-                <td>SUM</td>
-                <td>Carry</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>1</td>
-                <td>1</td>
-                <td>0</td>
-            </tr>
-              <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>0</td>
-                <td>1</td>
-                <td>0</td>
-            </tr>
-               <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>1</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>0</td>
-                <td>1</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>1</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-              <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>0</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-               <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+| Input A | Input B | Carry In ($C_{in}$) | Carry Out ($C_{out}$) | Sum (S) |
+| :---: | :---: | :---: | :---: | :---: |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 |
 ## Ripple carry adder
 <img src="../REFERENCES/images/ripple_carry_adder.png">
 ## Carry look ahead adder
