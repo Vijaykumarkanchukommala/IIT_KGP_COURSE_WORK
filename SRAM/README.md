@@ -26,10 +26,9 @@ For a 128 KB memory space, a **17-bit memory address** ($2^{17} = 131,072 	ext{ 
 
 | Address Bits | Field Name | Width | Description |
 | :--- | :--- | :--- | :--- |
-| **A[16:15]** | **Bank Select** | 2 bits | Decodes $2^2 = 4$ memory banks using a 2-to-4 decoder. |
-| **A[14:12]** | **Block Select** | 3 bits | Decodes $2^3 = 8$ blocks per bank using a 3-to-8 decoder. |
-| **A[11:2]** | **Internal Word Address** | 10 bits | Points to one of the $2^{10} = 1024$ words inside the targeted block. |
-| **A[1:0]** | **Byte Offset** | 2 bits | Selects individual bytes within the 32-bit word (Ignored if strictly word-aligned). |
+| **A[14:13]** | **Bank Select** | 2 bits | Decodes $2^2 = 4$ memory banks using a 2-to-4 decoder. |
+| **A[12:10]** | **Block Select** | 3 bits | Decodes $2^3 = 8$ blocks per bank using a 3-to-8 decoder. |
+| **A[9:0]** | **Internal Word Address** | 10 bits | Points to one of the $2^{10} = 1024$ words inside the targeted block. |
 
 #### Mathematical Alignment
 $$\text{4 banks} \times \text{8 blocks/bank} \times \text{1024 words/block} \times \text{4 bytes/word} = 128\text{ KB}$$
@@ -41,6 +40,9 @@ $$\text{4 banks} \times \text{8 blocks/bank} \times \text{1024 words/block} \tim
 The system architecture is structured to route data hierarchically: the top-level address lines determine the active memory bank, which subsequently drives block selection to activate a specific matrix array without causing heavy dynamic power draw across unselected blocks.
 
 
+<img src="..REFERENCES/images/SRAM_128KB_no_byte_offset.png">
+
+#### With Byte offset
 <img src="../REFERENCES/images/SRAM_128KB.png">
 
 ---
