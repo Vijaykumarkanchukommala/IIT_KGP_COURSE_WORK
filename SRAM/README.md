@@ -1,10 +1,26 @@
-# 128KB Hierarchical Banked SRAM Implementation
+# SRAM Overview
+
+The acronym **SRAM** primarily refers to two entirely different industries: **Static Random-Access Memory** in computer electronics, and **SRAM Corporation**, a premier global manufacturer of bicycle components.
+
+---
+
+### Static Random-Access Memory (Electronics)
+
+In technology, **SRAM** is a type of volatile semiconductor memory that uses flip-flop latching circuitry to store each bit of data. Unlike Dynamic RAM (DRAM), SRAM **retains data without needing constant electrical refreshing**, making it significantly faster but more expensive and less dense.
+
+* **Core Architecture**: Typically built using a **6-Transistor (6T) CMOS cell** arrangement.
+* **Primary Use**: Serving as high-speed **CPU Cache (L1, L2, L3)**, microprocessor registers, and embedded systems where low latency is critical.
+* **Types**: Includes *Asynchronous SRAM*, *Synchronous SRAM* (clocks data transfer), and *Non-volatile SRAM (nvSRAM)* which uses battery backups to prevent data loss.
+
+
+
+## 128KB Hierarchical Banked SRAM Implementation
 
 This repository contains the architecture, decoding mapping, and structural layout for a **128 KB SRAM** configured with 4 banks, each containing 8 blocks of 1024 words.
 
 ---
 
-## 🗺️ Memory Address Decoding Breakdown
+###  Memory Address Decoding Breakdown
 
 For a 128 KB memory space, a **17-bit memory address** ($2^{17} = 131,072 	ext{ bytes}$) is required. Assuming a standard 32-bit word-aligned architecture, the address bits are mapped as follows:
 
@@ -15,12 +31,12 @@ For a 128 KB memory space, a **17-bit memory address** ($2^{17} = 131,072 	ext{ 
 | **A[11:2]** | **Internal Word Address** | 10 bits | Points to one of the $2^{10} = 1024$ words inside the targeted block. |
 | **A[1:0]** | **Byte Offset** | 2 bits | Selects individual bytes within the 32-bit word (Ignored if strictly word-aligned). |
 
-### Mathematical Alignment
+#### Mathematical Alignment
 $$\text{4 banks} \times \text{8 blocks/bank} \times \text{1024 words/block} \times \text{4 bytes/word} = 128\text{ KB}$$
 
 ---
 
-## 🏗️ Hierarchical Block Diagram
+###  Hierarchical Block Diagram
 
 The system architecture is structured to route data hierarchically: the top-level address lines determine the active memory bank, which subsequently drives block selection to activate a specific matrix array without causing heavy dynamic power draw across unselected blocks.
 
@@ -29,7 +45,7 @@ The system architecture is structured to route data hierarchically: the top-leve
 
 ---
 
-## 🔧 Key Implementation Guidelines
+###  Key Implementation Guidelines
 
 * **Bank and Block Decoding**: Use low-skew combinatorial decoders for the **Bank Select** and **Block Select** lines. Enabling only one specific block in one specific bank during an active cycle significantly minimizes dynamic power consumption.
 * **SRAM Cell Core**: Each of the 32 total blocks ($4 	imes 8$) houses an array of **6T SRAM cells** configured as a $1024 	imes 32$ bit matrix (or optimized into a squarer $128 	imes 256$ layout to balance vertical and horizontal wire lengths).
