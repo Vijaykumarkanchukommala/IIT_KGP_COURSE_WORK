@@ -13,11 +13,13 @@ module sram_banked_top #(
    output           [DATA_WIDTH    - 1:0]   o_dout
 );
 
- localparam BANK_ADDRESS_WIDTH = ADDRESS_WIDTH-$clog2(NUM_BANKS); 
+ localparam BANK_ADDRESS_WIDTH     = ADDRESS_WIDTH-$clog2(NUM_BANKS); 
+ localparam BANK_SEL_ADDRESS_WIDTH = $clog2(NUM_BANKS); 
 
 
  wire   [DATA_WIDTH    - 1:0] w_dout [NUM_BANKS-1:0];
  wire   [NUM_BANKS-1:0]       w_bank_sel;
+ wire   [NUM_BANKS-1:0]       w_bank_output_enable;
 
  sram_addr_decoder #(.INPUT_WIDTH($clog2(NUM_BANKS)),.OUTPUT_WIDTH(NUM_BANKS))
  u_sram_addr_decoder
@@ -46,4 +48,28 @@ module sram_banked_top #(
      );
    end
  endgenerate
+
+
+ sram_bank_sel_decoder
+ #(
+     .NUM_BANKS              (NUM_BANKS             ),
+     .BANK_SEL_ADDRESS_WIDTH (BANK_SEL_ADDRESS_WIDTH) 
+  ) 
+ u_sram_bank_sel_decoder
+ (
+      .i_addr                (i_addr[BANK_ADDRESS_WIDTH+:BANK_SEL_ADDRESS_WIDTH]),
+      .o_bank_output_enable  (w_bank_output_enable                              )
+ );
+
+ sram_tristate_bus
+ #(
+     .NUM_BANKS              (NUM_BANKS             ),
+     .DATA_WIDTH             (DATA_WIDTH            )     
+  ) 
+ u_sram_tristate_bus
+ (
+     .i_data                 (w_dout                ),
+     .i_enable               (w_bank_output_enable  ),
+     .o_bus_output           (o_dout                )
+ );
 endmodule
