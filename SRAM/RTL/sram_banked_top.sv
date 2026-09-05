@@ -42,18 +42,18 @@ module sram_banked_top #(
  endgenerate
 
 
- sram_bank_sel_decoder
+ sram_addr_decoder
  #(
-     .NUM_BANKS              (NUM_BANKS             ),
-     .BANK_SEL_ADDRESS_WIDTH (BANK_SEL_ADDRESS_WIDTH) 
+     .SEL_WIDTH              (NUM_BANKS             ),
+     .SEL_ADDRESS_WIDTH      (BANK_SEL_ADDRESS_WIDTH) 
   ) 
- u_sram_bank_sel_decoder
+ u_sram_addr_decoder
  (
       .i_clk                 (i_clk                                             ),
       .i_cen                 (i_cen                                             ),
       .i_addr                (i_addr[BANK_ADDRESS_WIDTH+:BANK_SEL_ADDRESS_WIDTH]),
-      .o_bank_sel            (w_bank_sel                                        ),
-      .o_bank_sel_dly        (w_bank_sel_dly                                    )
+      .o_sel                 (w_bank_sel                                        ),
+      .o_sel_dly             (w_bank_sel_dly                                    )
  );
 
  sram_tristate_bus
