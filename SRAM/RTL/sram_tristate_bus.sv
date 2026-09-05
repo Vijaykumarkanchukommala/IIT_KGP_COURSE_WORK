@@ -11,7 +11,7 @@ module sram_tristate_bus #(
 
     generate
         for (i = 0; i < NUM_BANKS; i++) begin : GEN_TRISTATE
-            assign o_bus_output = i_enable[i] ? i_data[i] : 'bz;
+            assign o_bus_output = !i_enable[i] ? i_data[i] : 'bz;
         end
     endgenerate
 
