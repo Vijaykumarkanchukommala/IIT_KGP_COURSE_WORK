@@ -29,6 +29,7 @@
 
 ## Ripple carry adder
 <img src="../REFERENCES/images/ripple_carry_adder.png">
+
 ## Carry look ahead adder
 <img src="../REFERENCES/images/carry_look_head_adder.png">
 
