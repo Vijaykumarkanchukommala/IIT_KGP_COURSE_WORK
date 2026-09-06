@@ -40,10 +40,10 @@ $$\text{4 banks} \times \text{8 blocks/bank} \times \text{1024 words/block} \tim
 The system architecture is structured to route data hierarchically: the top-level address lines determine the active memory bank, which subsequently drives block selection to activate a specific matrix array without causing heavy dynamic power draw across unselected blocks.
 
 
-<img src="../REFERENCES/images/SRAM_128KB_no_byte_offset.png">
+<img src="../../REFERENCES/images/SRAM_128KB_no_byte_offset.png">
 
 #### With Byte offset
-<img src="../REFERENCES/images/SRAM_128KB.png">
+<img src="../../REFERENCES/images/SRAM_128KB.png">
 
 ---
 

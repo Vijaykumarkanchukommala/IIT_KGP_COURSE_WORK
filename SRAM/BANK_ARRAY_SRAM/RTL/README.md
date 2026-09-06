@@ -1,6 +1,6 @@
 # SRAM Architecture diagram 
 
-<img src="../../REFERENCES/images/sram_arc.jpeg">
+<img src="../../../REFERENCES/images/sram_arc.jpeg">
 
 # Banked SRAM Memory Controller Architecture
 
