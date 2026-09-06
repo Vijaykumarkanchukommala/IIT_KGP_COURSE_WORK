@@ -1,4 +1,4 @@
-# Round-Robin Arbiter with Barrel-Shifter Architecture
+# Round-Robin Arbiter Architecture
 
 This repository contains a parameterizable, highly optimized **Round-Robin Arbiter** implemented in SystemVerilog. It utilizes a parallel barrel-shifting mechanism to resolve priority scheduling in a single clock cycle, eliminating slow sequential loops and minimizing critical path delays.
 
