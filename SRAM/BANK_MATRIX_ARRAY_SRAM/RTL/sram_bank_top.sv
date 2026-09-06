@@ -1,6 +1,6 @@
 module sram_bank_top #(
-  parameter DATA_WIDTH      = 32, 
-  parameter ADDRESS_WIDTH   = 15,  
+  parameter DATA_WIDTH      = 8, 
+  parameter ADDRESS_WIDTH   = 17,  
   parameter NUM_BANKS       = 4,
   parameter NUM_ROWS        = 1024,
   parameter NUM_COLS        = 32 
