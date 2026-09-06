@@ -22,7 +22,7 @@ This block is ideal for interrupt request lines, bus arbiters, memory scheduling
 
 The bitscan logic avoids complex conditional loops by leveraging binary arithmetic properties:
 
-$$o\_grant = i\_req \ \& \ (\sim i\_req + 1)$$
+$o\_grant = i\_req \ \& \ (\sim i\_req + 1)$
 
 This translates directly to bitwise ANDing the request with its two's complement negation ($i\_req \ \& \ -i\_req$).
 
@@ -50,7 +50,7 @@ This translates directly to bitwise ANDing the request with its two's complement
 | `i_req[3:0]` | `o_grant[3:0]` | Granted Index | Description |
 | :---: | :---: | :---: | :--- |
 | `4'b0000` | `4'b0000` | None | No active requests; output remains all zeros. |
-| `4'b0001` | `4 me` | Bit 0 | Request 0 active. |
+| `4'b0001` | `4'b0001` | Bit 0 | Request 0 active. |
 | `4'b0010` | `4'b0010` | Bit 1 | Request 1 active. |
 | `4'b0011` | `4'b0001` | Bit 0 | Bit 0 and Bit 1 active; Bit 0 takes priority. |
 | `4'b1010` | `4'b0010` | Bit 1 | Bit 1 takes priority over Bit 3. |
