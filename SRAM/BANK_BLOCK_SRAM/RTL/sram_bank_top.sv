@@ -1,4 +1,4 @@
-module sram_banked_top #(
+module sram_bank_top #(
   parameter DATA_WIDTH      = 32, 
   parameter ADDRESS_WIDTH   = 15,  
   parameter NUM_BANKS       = 4,
