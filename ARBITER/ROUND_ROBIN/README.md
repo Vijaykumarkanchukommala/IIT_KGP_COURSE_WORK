@@ -27,7 +27,7 @@ An **arbiter** manages access to shared resources among multiple competing reque
 
 Save your flowchart image as `flowchart.png` in your repository folder and it will render perfectly below:
 
-<img src="REFERENCES/flow_chart.ijg">
+<img src="REFERENCES/flow_chart.jpg">
 
 ---
 
