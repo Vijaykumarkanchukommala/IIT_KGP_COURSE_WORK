@@ -2,7 +2,7 @@
 
 The hierarchical organization and address decoding flow are visualized below.
 
-<img src="../REFERENCES/sram_matrix_array.jpeg">
+<img src="REFERENCES/sram_matrix_array.jpeg">
 
 ---
 
@@ -45,7 +45,7 @@ The system implements the following 17-bit address decoding logic to access the 
 | `o_dout` | Output | 8 | `logic` | High (`1`) | Registered byte read data output bus (`[7:0]`). |
 
 # Simulation
-<img src="../REFERENCES/SRAM_BANK_MATRIX_ARRAY_SIMULATION.png">
+<img src="REFERENCES/SRAM_BANK_MATRIX_ARRAY_SIMULATION.png">
 
 ## File List
 
