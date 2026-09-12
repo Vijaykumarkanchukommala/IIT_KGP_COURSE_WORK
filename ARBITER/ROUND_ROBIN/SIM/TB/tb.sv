@@ -1,12 +1,12 @@
 module tb ();
 
-  parameter WIDTH      = 4;
+  parameter NUM_REQ      = 5;
 
 
   reg                  i_clk;
   reg                  i_reset_n;
-  reg      [WIDTH-1:0] i_req,r_req;
-  wire     [WIDTH-1:0] o_grant;
+  reg      [NUM_REQ-1:0] i_req,r_req;
+  wire     [NUM_REQ-1:0] o_grant;
 
   integer i;
 
@@ -16,13 +16,15 @@ module tb ();
     i_reset_n = 0;
     #11;
     i_reset_n = 1;
-    r_req   = {WIDTH{1'b1}};
+    r_req   = {NUM_REQ{1'b1}};
     repeat(256) begin
       r_req = $random;
       #1;
     end
+      r_req = {NUM_REQ{1'b1}};
+      #1;
     #100
-    r_req   = {WIDTH{1'b0}};
+    r_req   = {NUM_REQ{1'b0}};
     #100 $finish();
   end
 
@@ -49,7 +51,7 @@ module tb ();
   always #1 i_clk = ~i_clk;
 
 
-  round_robin_arbiter #(.WIDTH(WIDTH)) u_round_robin_arbiter 
+  round_robin_arbiter #(.NUM_REQ(NUM_REQ)) u_round_robin_arbiter 
   (
     .i_clk           (i_clk      ),
     .i_reset_n       (i_reset_n  ),
