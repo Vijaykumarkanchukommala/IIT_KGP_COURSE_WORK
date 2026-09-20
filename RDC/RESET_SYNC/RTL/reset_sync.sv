@@ -1,11 +1,11 @@
 module reset_sync
 #(
-   parameter RESET_POLARITY  = 1'b1;
+   parameter RESET_POLARITY  = 1'b1 
 )
 (
-    input  wire        clk,
-    input  wire        rst_n,  // async active-low reset (common)
-    output wire        sync    // bus interrupt synchronized to cpu domain
+    input  wire        i_clk,
+    input  wire        i_rst,  
+    output wire        o_sync_rst 
 );
-    sync_ff #(1) u_rst_cpu (clk_cpu, rst_n, RESET_POLARITY, rst_cpu_n);
+    sync_ff #(.WIDTH(1),.RESET_POLARITY(RESET_POLARITY)) u_rst_ff (i_clk, i_rst, o_sync_rst);
 endmodule
