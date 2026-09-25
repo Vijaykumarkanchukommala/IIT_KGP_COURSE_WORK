@@ -1,0 +1,9 @@
+$RTL_PATH/MAC/unsigned_adder.sv
+$RTL_PATH/MAC/unsigned_multiplier.sv
+$RTL_PATH/MAC/signed_adder.sv
+$RTL_PATH/MAC/signed_multiplier.sv
+$RTL_PATH/MAC/ctrl.sv
+$RTL_PATH/MAC/mac_core.sv
+$RTL_PATH/MAC/mac.sv
+$RTL_PATH/MAC/kernal_buffer.sv
+$RTL_PATH/MAC/mac_top.sv
